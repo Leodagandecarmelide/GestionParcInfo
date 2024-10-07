@@ -4,7 +4,7 @@ const findAll = assync () => {
     try {
         const [users] = await db.query ('select * from user')
         return user
-    } catch(error) {
+    } catch(error) { 
         console.error (error)
     }
 }

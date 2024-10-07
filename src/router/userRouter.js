@@ -2,7 +2,7 @@ const express = require("express")
 
 const router = express.Router()
 
-const { getAll } = require('./controller/user et je suis dans le controller')
+const { getAll } = require('../controller/userController')
 
 //get http://localhost:3310/api/user
 router.get('/', getAll) 
