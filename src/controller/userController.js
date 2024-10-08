@@ -1,4 +1,4 @@
-const {findAll} =require('../model/userModel')
+const {findAll, findOne} =require('../model/userModel')
 
 const getAll = async (req, res) => { 
     try {
@@ -9,4 +9,15 @@ const getAll = async (req, res) => {
     }
 }
 
-module.exports = {getAll}
+const getOne = async (req, res) => {
+    try {
+        const userId = parseInt(req.params.id)
+        const user = await findOne (userId)
+        res.status(200).json(user)
+    } catch (error)    
+    {
+        res.sendStatus(500);
+     }}    
+
+
+module.exports = { getAll, getOne } 

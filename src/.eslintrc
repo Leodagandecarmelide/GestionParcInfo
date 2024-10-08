@@ -1,0 +1,15 @@
+{
+    "env": {
+      "node": true,      // Ajoute cette ligne pour indiquer que c'est un projet Node.js
+      "es2021": true     // Assure que les fonctionnalités modernes de JavaScript sont supportées
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 12, // Définit la version ECMAScript (2021 correspond à ES12)
+      "sourceType": "script" // Pour CommonJS, le source type doit être 'script'
+    },
+    "rules": {
+      // Tu peux ajouter d'autres règles ici si besoin
+    }
+  }
+  
