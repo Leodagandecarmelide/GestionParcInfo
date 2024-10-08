@@ -1,4 +1,5 @@
 const {findAll, findOne} =require('../model/userModel')
+const validateUser = require('../validator/userValidator.js')
 
 const getAll = async (req, res) => { 
     try {
@@ -10,7 +11,7 @@ const getAll = async (req, res) => {
 }
 
 const getOne = async (req, res) => {
-    try {
+    try { 
         const userId = parseInt(req.params.id)
         const user = await findOne (userId)
         res.status(200).json(user)
@@ -19,5 +20,15 @@ const getOne = async (req, res) => {
         res.sendStatus(500);
      }}    
 
+const createOne = async (req,res) => {
+    const newUser = req.body
+    console.log('route create one', newUser)
+    const errors = validateUser(newUser)
+    if (errors) {
+        return res.status(401).send(errors)
+    }
+    const result = addOne(newUser)
+}
 
-module.exports = { getAll, getOne } 
+
+module.exports = { getAll, getOne, createOne } 

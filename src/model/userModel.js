@@ -8,10 +8,18 @@ const findAll = async () => {
         console.error (error)
     }
 }
-
+ 
 const findOne = async(id) => {
     const [user] = await db.query('SELECT * FROM parcinfo.users where idusers = ? ', [id])
     return user
 }
 
-module.exports = { findAll, findOne }
+const addOne = async (user) => { 
+    const {gender, name, firstname, email, phone} = user 
+    const [result] =await db.query('INSERT INTO `users` (`gender`, `name`, `firstname`, `mail`) VALUES (?,?,?,?);')
+
+
+  
+}
+
+module.exports = { findAll, addOne }
