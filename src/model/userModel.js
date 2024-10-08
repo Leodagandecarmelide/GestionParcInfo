@@ -16,10 +16,11 @@ const findOne = async(id) => {
 
 const addOne = async (user) => { 
     const {gender, name, firstname, email, phone} = user 
-    const [result] =await db.query('INSERT INTO `users` (`gender`, `name`, `firstname`, `mail`) VALUES (?,?,?,?)')
+    const [result] =await db.query('INSERT INTO users (`gender`, `name`, `firstname`, `email`, `phone`) VALUES (?,?,?,?,?)' [gender, name, firstname, email, phone])
+    return {id: result.insertId, gender, name, firstname, email, phone,}
 
 
   
 }
 
-module.exports = { findAll, addOne }
+module.exports = { findAll, findOne, addOne }

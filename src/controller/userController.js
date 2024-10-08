@@ -1,4 +1,4 @@
-const {findAll, findOne} =require('../model/userModel')
+const {findAll, findOne, addOne} =require('../model/userModel')
 const validateUser = require('../validator/userValidator.js')
 
 const getAll = async (req, res) => { 
@@ -27,7 +27,8 @@ const createOne = async (req,res) => {
     if (errors) {
         return res.status(401).send(errors)
     }
-    const result = addOne(newUser)
+    const result = await addOne(newUser)
+    res.status (201).send(result) 
 }
 
 
