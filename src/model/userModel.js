@@ -1,9 +1,9 @@
 const db = require ('./db.js')
 
-const findAll = assync () => {
+const findAll = async () => {
     try {
         const [users] = await db.query ('select * from user')
-        return user
+        return users
     } catch(error) { 
         console.error (error)
     }
