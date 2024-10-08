@@ -16,7 +16,7 @@ const findOne = async(id) => {
 
 const addOne = async (user) => { 
     const {gender, name, firstname, email, phone} = user 
-    const [result] =await db.query('INSERT INTO `users` (`gender`, `name`, `firstname`, `mail`) VALUES (?,?,?,?);')
+    const [result] =await db.query('INSERT INTO `users` (`gender`, `name`, `firstname`, `mail`) VALUES (?,?,?,?)')
 
 
   
